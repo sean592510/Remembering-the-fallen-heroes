@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tribute Page</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10;
+            line-height: 2.2;
+        }
+
+        /* Navigation bar */
+        nav {
+            background-color: #a68078;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: none; /* Hidden on mobile by default */
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #026878;
+            padding: 20px 0;
+        }
+
+        .nav-links.active {
+            display: flex; /* Shown when toggled */
+        }
+
+        .nav-links a {
+            color: #026878;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #; /* Hover color change */
+        }
+
+      
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #022978;
+            bottom: 0;
+            left: 20px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: calc(100% - 40px); /* Slides underline across link */
+        }
+
+        
+        .hamburger {
+            display: block;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+       
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        
+        .container {
+            width: 90%;
+            margin: 80px auto 20px; /* Adjusted for fixed nav */
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .tribute-img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+
+      
+        @media screen and (min-width: 1024px) {
+            .container {
+                max-width: 1200px;
+                padding: 40px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tribute-img {
+                width: 50%;
+                max-width: 600px;
+                margin: 20px auto;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            p {
+                font-size: 1.2rem;
+                margin: 15px 0;
+            }
+
+            .tribute-content {
+                display: flex;
+                gap: 30px;
+                align-items: center;
+            }
+
+            .tribute-img {
+                flex: 1;
+            }
+
+            .tribute-text {
+                flex: 1;
+            }
+
+            /* Nav bar adjustments */
+            .nav-container {
+                max-width: 1200px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                background-color: transparent;
+                padding: 0;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+
+            .nav-links a::after {
+                left: 15px;
+            }
+
+            .nav-links a:hover::after {
+                width: calc(100% - 30px);
+            }
+
+            .hamburger {
+                display: none; /* Hidden on desktop */
+            }
+        }
+
+        /* Tablet breakpoint (min-width: 768px and max-width: 1023px) */
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+            .container {
+                width: 85%;
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .tribute-img {
+                width: 75%;
+                max-width: 500px;
+                margin: 20px auto;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="https://en.wikipedia.org/wiki/123Movies#:~:text=123Movies%2C%20GoMovies%2C%20GoStream%2C%20MeMovies,to%20watch%20films%20for%20free.">About</a>
+                <a href="#tribute">Tribute</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>123 movies</h1>
+        <div class="tribute-content">
+            <img src="https://play-lh.googleusercontent.com/0xHU3HtXITmiIo7R7gvELsCgFefFvGDQXMZTHo2EPogc9lFhcV1Ye88j2uwW0Q5wOvQ" alt="123-movies" class="tribute-img">
+            <div class="tribute-text">
+                <p> 123Movies, GoMovies, GoStream, MeMovies or 123movieshub was a network of file streaming websites operating from Vietnam which allowed users to watch films for free. It was called the world's "most popular illegal site" by the Motion Picture Association of America (MPAA) in March 2018,[3][6] before being shut down a few weeks later on foot of a criminal investigation by the Vietnamese authorities.[7]...</p>
+                <p>The site went through several name changes after being shut down from different domains; sometimes the name appeared as "123Movies", and other times as "123movies". The original name, and URL, was 123movies.to, which changed to other domains including 123movies.is before redirecting to gomovies.to and later gomovies.is. It was changed to gostream.is, and then to memovies.to, before changing to 123movieshub.to/is and remaining there until shutdown.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript for hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
+
